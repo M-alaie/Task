@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import './App.css'
 
 import InputTask from './components/Task/inputTask'
-import TaskList from './components/Task/taskList'
+import TaskList from './components/Task/task_list'
 
 
 
@@ -25,14 +25,20 @@ const App: React.FC = () => {
     ])
     
   }
+const filterTods=Todos.filter(Todo=>Todo.isDone===false)
 
+  const TodosMap=filterTods.map(Todos=><TaskList Todos={Todos} key={Todos.id}></TaskList>)
   console.log(Todos);
 
   return (
     <div className='App'>
       <span className='heading'>Taskify</span>
       <InputTask add={addHandle}></InputTask>
-      <TaskList></TaskList>
+      <div >
+      <ul className='list_item'>
+          {TodosMap}
+      </ul>
+      </div>
     </div>
   )
 }
