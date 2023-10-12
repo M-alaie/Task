@@ -6,10 +6,7 @@ import "../../Assets/task-css/inputTask.css"
   add:(input :string)=>void
  
  }
-
-
-
-const InputTask :React.FC<Props> = ({add})=> {
+const AddInputTask :React.FC<Props> = ({add})=> {
 
 const [Input,setInput]=useState<string>("")
 
@@ -22,16 +19,11 @@ const inputRef=useRef<HTMLInputElement>(null)
       add(Input)
     }
     setInput("")
-  
-    
-
   }
   const changeInput=( event :React.ChangeEvent<HTMLInputElement> )=>{
       setInput(event.target.value)
   }
   return (
-
-
    <form action="" onSubmit={submitForm} className='input_form'>
     <input type="text" ref={inputRef} placeholder='Enter your Task' value={Input} onChange={changeInput} className='input_box' />
     <button className='input_submit'>GO</button>
@@ -39,4 +31,4 @@ const inputRef=useRef<HTMLInputElement>(null)
   )
 }
 
-export default InputTask
+export default AddInputTask

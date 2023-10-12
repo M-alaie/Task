@@ -20,19 +20,26 @@
   text-align: center;
 }
 
-.list_item{
-  display: flex;
-  flex-direction:row;
-  flex-wrap: wrap;
-  width: 95%;
-  justify-content: space-between;
-  align-items: center;
+.list{
+
+ display: grid;
+ grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 50%;
+  padding: 20px;
+  margin: 10px;
+  list-style: none;
+
 
 }
 
-@media (max-width: 800px) {
+@media only screen  and (max-width:900px) {
   .heading {
     margin: 15px 0;
     font-size: 35px;
   }
+    .list{
+      width: 90%;
+      grid-template-columns: repeat( 1 ,minmax(0,1fr));
+    }
+    
 }

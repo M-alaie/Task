@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import './App.css'
 
-import InputTask from './components/Task/inputTask'
+import AddInputTask from './components/Task/add_input_Task'
 import TaskList from './components/Task/task_list'
 
 
@@ -25,19 +25,34 @@ const App: React.FC = () => {
     ])
     
   }
+
+  const deleteTask=(id:number)=>{
+    setTodos(Todos.filter(todo=>todo.id!==id))
+  }
+
+  const doneHandle = (id: number): void => {
+    setTodos(Todos.map(Todos=>{
+      if(Todos.id===id){
+          return {...Todos ,isDone :Todos.isDone}
+      }
+      return Todos
+    }))
+  }
+ 
+  
 const filterTods=Todos.filter(Todo=>Todo.isDone===false)
 
-  const TodosMap=filterTods.map(Todos=><TaskList Todos={Todos} key={Todos.id}></TaskList>)
+  const TodosMap=filterTods.map(Todos=><TaskList doneHandle={doneHandle} deleteTask={deleteTask} Todos={Todos} key={Todos.id}></TaskList>)
   console.log(Todos);
 
   return (
     <div className='App'>
       <span className='heading'>Taskify</span>
-      <InputTask add={addHandle}></InputTask>
-      <div >
-      <ul className='list_item'>
+      <AddInputTask add={addHandle}></AddInputTask>
+      <div className='list'>
+      
           {TodosMap}
-      </ul>
+     
       </div>
     </div>
   )

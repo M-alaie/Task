@@ -1,0 +1,29 @@
+.Tasklist {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px; 
+    /*align items*/
+    margin: 20px;
+    padding: 25px;
+    align-items: center;
+    transition: all;
+    background-image: url("https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg");
+    min-width: 50%;
+}
+.todo_text{
+    font-size: 30px;
+    color: white;
+}
+.list_icons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 30%;
+}
+.icon{
+    font-size: 20px;
+    cursor: pointer;
+}
+
